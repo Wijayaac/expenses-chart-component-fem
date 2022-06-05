@@ -9,7 +9,7 @@
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
-    "dev": "parcel src/index.html"
+    "dev": "parcel src/index.html --lazy"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "2.5.0",
