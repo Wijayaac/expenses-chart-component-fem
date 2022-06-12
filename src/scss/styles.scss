@@ -44,6 +44,11 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   background-color: $cream;
+  font-family: $base-font;
+
+  @media (min-width: 992px) {
+    font-size: 22px;
+  }
 }
 /*
   6. Improve media defaults
@@ -102,28 +107,167 @@ ol {
   min-height: 667px;
   padding: 0 25px;
 
+  @media (min-width: 992px) {
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
   &__header {
     @extend .flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
-    padding: 10px 15px;
+    padding: 20px;
     border-radius: $corner-radius;
     background-color: $red;
     margin-bottom: 10px;
+    color: $orange;
+
+    &-title {
+      font-weight: 400;
+    }
+    &-balance {
+      font-size: 26px;
+      line-height: 120%;
+      font-weight: 700;
+      @media (min-width: 992px) {
+        font-size: 32px;
+      }
+    }
   }
   &__body {
-    padding: 20px 15px;
+    padding: 20px;
+    width: 100%;
     background-color: $orange;
     border-radius: $corner-radius;
+    &-title {
+      font-size: 24px;
+      line-height: 120%;
+      color: $dark-brown;
+      margin-bottom: 30px;
+
+      @media (min-width: 992px) {
+        font-size: 30px;
+        margin-bottom: 50px;
+      }
+    }
   }
   &__day {
     &-lists {
       @extend .flex;
       justify-content: space-between;
+      height: 220px;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid hsl(28 10% 53% / 0.5);
+    }
+    &-item {
+      @extend .flex;
+      justify-content: flex-end;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    &-bar {
+      display: block;
+      position: relative;
+      height: 48px;
+      width: 9vw;
+      background-color: $red;
+      border-radius: 4px;
+      margin-bottom: 5px;
+
+      @media (min-width: 992px) {
+        max-width: 50px;
+      }
+      &:hover {
+        background-color: hsl(10 79% 65% / 0.8);
+      }
+      &--current {
+        background-color: $cyan;
+        &:hover {
+          background-color: hsl(186 34% 60% / 0.8);
+        }
+      }
+    }
+    &-popover {
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      visibility: hidden;
+      padding: 5px;
+      margin: 0;
+      border-radius: 4px;
+      color: $orange;
+      font-size: 10px;
+      font-weight: 700;
+      background-color: $dark-brown;
+      transition: all 400ms, 400ms ease;
+      @media (min-width: 576px) and (max-width: 991.98px) {
+      }
+      @media (min-width: 992px) {
+        top: -50px;
+        padding: 10px;
+        font-size: 16px;
+        margin-left: -10px;
+        margin-right: -10px;
+      }
+    }
+    &-bar:hover & {
+      &-popover {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    &-label {
+      color: $med-brown;
+      font-size: 16px;
+
+      @media (min-width: 992px) {
+        font-size: 18px;
+      }
     }
   }
   &__summary {
     @extend .flex;
     justify-content: space-between;
+    align-items: flex-end;
+  }
+  &__current {
+    &-label {
+      font-size: 16px;
+      color: $med-brown;
+
+      @media (min-width: 992px) {
+        font-size: 20px;
+      }
+    }
+    &-amount {
+      font-size: 31px;
+      font-weight: 700;
+      color: $dark-brown;
+
+      @media (min-width: 992px) {
+        font-size: 48px;
+      }
+    }
+  }
+  &__last {
+    &-label {
+      font-size: 16px;
+      color: $med-brown;
+      margin-bottom: 0;
+
+      @media (min-width: 992px) {
+        font-size: 20px;
+      }
+    }
+    &-percentage {
+      color: $dark-brown;
+      font-weight: 700;
+    }
   }
 }
