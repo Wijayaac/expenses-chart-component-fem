@@ -2,13 +2,12 @@
   "name": "section-with-dropdown-navigation-main",
   "version": "1.0.0",
   "description": "front end mentor challenge",
-  "main": "script.js",
   "author": "wijaya",
   "license": "MIT",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build",
+    "build": "parcel build src/index.html",
     "dev": "parcel src/index.html --lazy"
   },
   "devDependencies": {
